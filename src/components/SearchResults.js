@@ -6,7 +6,7 @@ const SearchResult = ({result}) => {
 
     return (
 
-        <div className="container">
+        <div className="products-body">
             {ProductStack}
 
             <p id="pageNumber">
