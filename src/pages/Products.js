@@ -26,69 +26,69 @@ const products = ({data}) => {
     const searchResult = data
     .filter(({price}) => price >= minPrice)
     .filter(({bagName}) => bagName.toUpperCase().includes(query.toUpperCase()))
-    .filter(({filters}) => methods.length === 0 || 
-    filters.filter((method) => methods.includes(method)).length > 0)
+    .filter(({filters}) => searchState.methods.length === 0 || 
+    filters.filter((method) => searchState.methods.includes(method)).length > 0)
     .sort(sort)
   
-  const changeState = (event) => {
+   const changeState = (event) => {
     
 
     setSearchState({
       ...searchState,
       query: event.target.value
     })
-  }
+ }
 
    
- const swapGoal = ({target}) => {
+const swapGoal = ({target}) => {
 
-    let sorting
-    if (target.value === "0") {
+   let sorting
+      if (target.value === "0") {
       sorting = (a, b) => a.price - b.price
-    } else if (target.value === "1") {
-      sorting = (a, b) => b.price - a.price
-    }
+     } else if (target.value === "1") {
+       sorting = (a, b) => b.price - a.price
+     }
 
-    setSearchState({
+     setSearchState({
       ...searchState,
       sort: sorting
-    })
-  }
+     })
+ }
 
   const targetState = ({target}) => {
     
-    if (target.checked) {
+     if (target.checked) {
       setSearchState({
         ...searchState,
         methods: [...searchState.methods, target.value]
       })
     } else {
-      setSearchState({
+     setSearchState({
         ...searchState,
-        methods: searchState.methods.filter((method) => method !== target.value)
+       methods: searchState.methods.filter((method) => method !== target.value)
       })
     }
-
+  }
     return (
         <Layout>
-        <section class="filter">
+        <section className="filter">
 
-        <legend class="legend-head">colors</legend>
-        <legend class="legend-head">sizes</legend>
-        <legend class="legend-head">ratings</legend>
-        <legend class="legend-head">collections</legend>
-        <legend class="legend-head">materials</legend>
+        <legend className="legend-head">colors</legend>
+        <legend className="legend-head">sizes</legend>
+        <legend className="legend-head">ratings</legend>
+        <legend className="legend-head">collections</legend>
+        <legend className="legend-head">materials</legend>
 
 
 
-        <legend class="sort">sort</legend>
+        <legend className="sort">sort</legend>
         </section>
 
         <SearchResult result={searchResult}/>
 
         </Layout>
     )
-  }
+  
 }
 
 export default products
