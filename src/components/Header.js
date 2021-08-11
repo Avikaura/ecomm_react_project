@@ -12,7 +12,7 @@ const Header = () => {
 
     <ul className="menu-logo">
         <li>
-            <img src="img/svgs/list.svg" alt="The menu bar" className="set-menu" onclick="myFunction()"/>
+            <img src="./src/img/svgs/list.svg" alt="The menu bar" className="set-menu" onClick="myFunction()"/>
             <div className="myLinks" id="myLinks">
                 <a href="#">new arrivals</a>
                 <a href="#">women</a>
@@ -23,15 +23,15 @@ const Header = () => {
                  
               </div>
         </li>
-        <li><img src="img/svgs/heart.svg" alt="To add product in favourites" className="set-fav" /></li>
+        <li><img src="./src/img/svgs/heart.svg" alt="To add product in favourites" className="set-fav" /></li>
         <li>
-            <a href="index.html"><img src="img/logo.svg" alt="The webstore is for handbags" className="logo"/></a>
+            <a href="index.html"><img src="./src/img/logo.svg" alt="The webstore is for handbags" className="logo"/></a>
         </li>
         <li>
-            <img src="img/svgs/user.svg" alt="user-profile" className="user-contact"/>
+            <img src="./src/img/svgs/user.svg" alt="user-profile" className="user-contact"/>
         </li>
         <li>
-            <img src="img/svgs/shopping-cart.svg" alt="Add to bag" className="cart"/>
+            <img src="./src/img/svgs/shopping-cart.svg" alt="Add to bag" className="cart"/>
         </li>
     </ul>
     </section>
@@ -40,11 +40,11 @@ const Header = () => {
 
     <section className="search-bar-menu">
 
-        <a href="index.html"><img src="img/logo.svg" alt="The webstore is for handbags" className="logo1"/></a>
+        <a href="index.html"><img src="./src/img/logo.svg" alt="The webstore is for handbags" className="logo1"/></a>
 
     
         <form>
-            <input type="search" placeholder="         search 'spring edition' here" autocomplete="off" id="filterName"/>
+            <input type="search" placeholder="         search 'spring edition' here" autoComplete="off" id="filterName"/>
         </form>
 
         <ul className="menu">
@@ -119,20 +119,7 @@ const Header = () => {
 
     </section>
 
-    {/* <!--FILTER BLOCK--> */}
-
-    <section className="filter">
-
-      <legend className="legend-head">colors</legend>
-      <legend className="legend-head">sizes</legend>
-      <legend className="legend-head">ratings</legend>
-      <legend className="legend-head">collections</legend>
-      <legend className="legend-head">materials</legend>
-
     
-    
-      <legend className="sort">sort</legend>
-    </section>
   
 
 </header>
