@@ -2,6 +2,15 @@ import React, {useState} from 'react'
 import Layout from '../components/Layout'
 import SearchResult from '../components/SearchResults'
 
+const productsPerPage = 4;
+
+const PRODUCT_RANGE =  {
+  '0-150': {min:0, max:150},
+  '151-250': {min:151, max:250},
+  '251-350': {min:251, max:350},
+  '351-500': {min:351, max:500}
+}
+
 const products = ({data}) => {
 
     const [searchState, setSearchState] = useState({
@@ -11,6 +20,8 @@ const products = ({data}) => {
         sort: (a, b) => a.price - b.price
       })
 
+      const [pageNumber, setPageNumber] = useState(1);
+      const [range, setRange] = useState('select');
 
       const {query, minPrice, sort} = searchState
 
@@ -69,22 +80,51 @@ const swapGoal = ({target}) => {
       })
     }
   }
+
+  let filteredResults  
+  if(range !== 'select') {
+    const {min, max} = PRODUCT_RANGE[range]
+    filteredResults = searchResult.filter(product => product.price >= min && product.price <= max);
+  }
+  else {
+    filteredResults = searchResult;
+  }
+
+  const paginatedResult = pageNumber ===1 ? filteredResults.slice(0,productsPerPage) : filteredResults.slice((pageNumber*productsPerPage)-productsPerPage, (pageNumber*productsPerPage))
+  const totalPages = Math.ceil(filteredResults.length/productsPerPage);
     return (
-        <Layout>
+        <Layout onPageClick={page => {
+          if(page ==='back' && pageNumber > 1)
+          {
+            setPageNumber(pageNumber - 1);
+          }
+          else if (page==='next' && pageNumber < totalPages)
+          {
+             setPageNumber(pageNumber +1)
+          }
+          else if( page.target && typeof(parseInt(page.target.innerText)) === 'number') {
+            setPageNumber(parseInt(page.target.innerText))
+          }
+        }}
+        pageNumber={pageNumber}
+        totalPages={totalPages}
+        total={filteredResults && filteredResults.length}
+        >
         <section className="filter">
-
-        <legend className="legend-head">colors</legend>
-        <legend className="legend-head">sizes</legend>
-        <legend className="legend-head">ratings</legend>
-        <legend className="legend-head">collections</legend>
-        <legend className="legend-head">materials</legend>
-
+        <select name="prices" class="price-filter" onChange={event=>{setRange(event.target.value); setPageNumber(1)}} value={range}>
+          <option value='select'>Select Price Range</option>
+          <option value="0-150">$0-$150</option>
+          <option value="151-250">$151-$250</option>
+          <option value="251-350">$251-$350</option>
+          <option value="351-500">$351-$500</option>
+        </select>
+        <input type='submit' onClick={()=>{setRange('select')}} value='Clear Filters' class="clear-filter"/>
 
 
         <legend className="sort">sort</legend>
         </section>
 
-        <SearchResult result={searchResult}/>
+        <SearchResult result={paginatedResult} total={filteredResults && filteredResults.length}/>
 
         </Layout>
     )
