@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({total}) => {
 
     return (
         
@@ -115,7 +115,7 @@ const Header = () => {
 
     <section className="heading">
         <h2>isolated handbags</h2>
-        <h3>(102 products)</h3>
+        <h3>({total} products)</h3>
 
     </section>
 

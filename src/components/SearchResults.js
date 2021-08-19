@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductArray from './ProductArray'
 
-const SearchResult = ({result}) => {
+const SearchResult = ({result, total}) => {
     const ProductStack = result.slice(0,100).map((product) => <ProductArray key={product.prod_name} data={product} />)
 
     return (
@@ -11,7 +11,7 @@ const SearchResult = ({result}) => {
 
             <p id="pageNumber">
                
-                {ProductStack.length} {(ProductStack.length === 1) ? `product` : `products`} of {result.length}
+                {ProductStack.length} {(ProductStack.length === 1) ? `product` : `products`} of {total}
             </p>
         </div>
     )

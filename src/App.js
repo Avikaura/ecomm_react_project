@@ -86,6 +86,62 @@ const App = () => {
             price:230.00,
             bagImage:'58.jpg',
             bagName:'Clutch'
+        },
+
+        {
+            title:'Side-Bag',
+            price:140.00,
+            bagImage:'bag9.jpg',
+            bagName:'Side-Bag'
+        },
+    
+        {
+            title:'Claires',
+            price:250.00,
+            bagImage:'bag9.jpg',
+            bagName:'Claires'
+        },
+    
+        {
+            title:'Pink Rise',
+            price:225.50,
+            bagImage:'bag11.jpg',
+            bagName:'Pink Rise'
+        },
+    
+        {
+            title:'Chain Bar',
+            price:235.00,
+            bagImage:'bag4.jpg',
+            bagName:'Chain Bar'
+        },
+
+        {
+            title:'It spring Carry',
+            price:400.20,
+            bagImage:'bag5.jpg',
+            bagName:'It spring Carry'
+        },
+    
+        {
+            title:'Large Tote',
+            price:155.75,
+            bagImage:'bag6.jpg',
+            bagName:'Large Tote'
+        },
+    
+        {
+            title:'Pink Blossom',
+            price:325.50,
+            bagImage:'bag7.jpg',
+            bagName:'Pink Blossom'
+        },
+    
+        {
+            title:'Mini Side Clutch',
+            price:130.00,
+            bagImage:'bag8.jpg',
+            bagName:'Mini Side Clutch'
         }
     
     ]

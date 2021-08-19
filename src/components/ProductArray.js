@@ -13,7 +13,7 @@ const ProductArray = ({data}) => {
       <div className="hover-text">quick view</div>
       <img src="src/img/svgs/favourite.svg" alt="fav" className="fav-icon"/>
       
-      <h4>${bagName}    
+      <h4>{bagName}    
           <span><img src="src/img/svgs/star.svg" alt="ratings" className="rating-set"/></span>
           <span><img src="src/img/svgs/star.svg" alt="ratings" className="rating-set"/></span>
           <span><img src="src/img/svgs/star.svg" alt="ratings" className="rating-set"/></span>
