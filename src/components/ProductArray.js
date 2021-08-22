@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const ProductArray = ({data}) => {
 
@@ -9,8 +10,9 @@ const ProductArray = ({data}) => {
 
   return (
     <article className="product">
-    <a href="product.html" target="_blank"><img src={img} alt={title} className="product-img"/></a>  
-      <div className="hover-text">quick view</div>
+    {/* <a href="product.html" target="_blank"><img src={img} alt={title} className="product-img"/></a>   */}
+    <img src={img} alt={title} className="product-img"/>
+      <div className="hover-text"><Link to={`/single_product/${data.id}`}>quick view</Link></div>
       <img src="src/img/svgs/favourite.svg" alt="fav" className="fav-icon"/>
       
       <h4>{bagName}    

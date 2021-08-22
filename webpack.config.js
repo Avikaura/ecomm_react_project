@@ -24,7 +24,10 @@ module.exports = {
 		new HtmlWebPackPlugin({
 			template: './src/index.html',
 			filename: './index.html'
+
+		
 		})
+		
 	], 
 	devServer: {
 		port: 8080,

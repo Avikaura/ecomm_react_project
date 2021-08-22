@@ -1,5 +1,9 @@
 import React from 'react'
 import Products from './pages/Products'
+import ProductsContext from '../context/products'
+import Single_product from './pages/Single_product'
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+
 
 const App = () => {
     const myProducts =[
@@ -9,6 +13,7 @@ const App = () => {
             price:479.85,
             bagImage:'3.jpg',
             bagName:'Pochette'
+        
         },
         
         {
@@ -148,7 +153,20 @@ const App = () => {
 
 	return (
         <>
-            <Products data = {myProducts}/>
+            {/* <Products data = {myProducts}/> */}
+            <Router>
+         <Switch>
+           
+           <Switch>
+           <ProductsContext.Provider value={myProducts}>
+             <Route exact path="/"> <Products data = {myProducts} /></Route>
+             <Route  path="*"><Single_product /></Route>
+             <Redirect to="/" />
+             </ProductsContext.Provider>
+           </Switch>
+           
+          </Switch>
+       </Router>
         </>
     )
 }
